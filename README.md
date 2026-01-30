@@ -182,6 +182,11 @@ Apache-2.0 License
 
 Developed by QMUL team for WinterHack 2026
 
+Jialin Ma
+Shukai Zhang
+Junjie Chen
+Zhijian Fan
+
 ## 🙏 Acknowledgments
 
 - Built on ROS2 and the open-source robotics community
