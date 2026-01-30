@@ -19,14 +19,10 @@ This project integrates multiple robotics subsystems to create a complete autono
 #### Gazebo Simulation
 Watch the robot performing autonomous navigation and manipulation in simulation:
 
-[![Gazebo Simulation Demo](https://img.youtube.com/vi/vOa1X8RrOgM/maxresdefault.jpg)](https://youtu.be/vOa1X8RrOgM)
-
 [Watch on YouTube](https://youtu.be/vOa1X8RrOgM)
 
 #### Real Robot Testing
 See the system running on actual hardware:
-
-[![Real Robot Demo](https://img.youtube.com/vi/jdtO_zQPL5k/maxresdefault.jpg)](https://youtu.be/jdtO_zQPL5k)
 
 [Watch on YouTube](https://youtu.be/jdtO_zQPL5k)
 
