@@ -1,0 +1,94 @@
+# Hybrid Locate Configuration
+# Combines base movement (coarse) with servo tracking (fine)
+# Inspired by LanderPi track_and_grab.py approach
+
+locate_server:
+  ros__parameters:
+    # Topics
+    detections_topic: "/color_detection/detection_info"
+    cmd_vel_topic: "controller/cmd_vel"
+    servo_topic: "/servo_controller"
+    
+    # Detection selection
+    color_priority: ["GREEN", "RED", "BLUE", "YELLOW"]
+    
+    # === ALIGNMENT MODE ===
+    # "hybrid": Base for large errors (>50px), servo for fine (<50px) [RECOMMENDED]
+    # "servo_only": Use only servo tracking (requires object in view)
+    # "base_only": Use only base movement (original behavior)
+    alignment_mode: "hybrid"
+    
+    # === SERVO TRACKING PARAMETERS (NEW) ===
+    # Inspired by LanderPi track_and_grab.py
+    use_servo_tracking: true
+    
+    # Servo hardware limits (pulse units: 0-1000)
+    servo_yaw_limits: [200, 800]      # servo1 (yaw) pulse range
+    servo_pitch_limits: [100, 720]    # servo4 (pitch) pulse range
+    servo_initial_yaw: 500            # Starting yaw position
+    servo_initial_pitch: 150          # Starting pitch position
+    
+    # PID parameters for servo tracking (from track_and_grab.py line 41-42)
+    servo_pid_p: 20.5
+    servo_pid_i: 1.0
+    servo_pid_d: 1.2
+    
+    # Servo control timing
+    servo_update_interval: 0.02       # 50Hz update rate (same as track_and_grab)
+    
+    # Servo stability detection (from track_and_grab.py line 309-310)
+    servo_stability_time_s: 2.0       # Hold stable for 2 seconds
+    servo_stability_tolerance_px: 3   # Within 3 pixels (same as track_and_grab)
+    
+    # Threshold to switch from base to servo control (hybrid mode)
+    base_to_servo_threshold_px: 50    # Use servo when error < 50 pixels
+    
+    # === BASE CONTROL PARAMETERS ===
+    # Gates
+    detection_timeout_s: 0.5
+    
+    # Target pixel location (-1 uses frame center)
+    target_u_px: 320.0
+    target_v_px: 200.0
+    
+    # Depth-based control (inspired by track_and_grab.py)
+    use_depth_control: true
+    target_distance_m: 0.30           # Target approach distance
+    distance_tolerance_m: 0.02        # ±2cm tolerance
+    
+    # Depth compensation (from track_and_grab.py line 331-332)
+    # = 0.015 (object radius) + 0.04 (error compensation)
+    depth_offset_m: 0.055
+    min_valid_depth_m: 0.1
+    max_valid_depth_m: 3.0
+    
+    # Base stability parameters (from track_and_grab.py approach)
+    stability_time_s: 2.0             # Hold stable for 2 seconds
+    stability_tolerance_px: 3         # Within 3 pixels
+    stability_depth_tolerance_m: 0.01 # ±1cm depth tolerance
+    
+    # PID control for base movement
+    use_pid: true
+    yaw_kp: 0.1
+    yaw_ki: 0.02
+    yaw_kd: 0.01
+    fwd_kp: 0.5
+    fwd_ki: 0.02
+    fwd_kd: 0.01
+    yaw_i_max: 0.02
+    fwd_i_max: 0.02
+    pid_dt_min: 0.02
+    
+    # Velocity limits
+    yaw_max: 0.2                      # rad/s
+    v_max: 0.2                        # m/s
+    
+    # Deadband
+    deadband_px: 6                    # Pixel deadband for base control
+    
+    # Logging
+    log_control: true
+    log_every_n: 5                    # Log every 5th iteration
+    
+    # Timeout
+    alignment_timeout_s: 15.0         # Increased to allow servo tracking time
