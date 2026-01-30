@@ -182,9 +182,12 @@ Apache-2.0 License
 
 Developed by QMUL team for WinterHack 2026
 
-Jialin Ma
+Jialin Ma 
+
 Shukai Zhang
+
 Junjie Chen
+
 Zhijian Fan
 
 ## 🙏 Acknowledgments
