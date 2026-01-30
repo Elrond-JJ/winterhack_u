@@ -12,13 +12,33 @@ This project integrates multiple robotics subsystems to create a complete autono
 - **SLAM & Localization**: Real-time mapping and position tracking
 - **Pick & Place Operations**: Automated object manipulation tasks
 
-## 🎬 Demo Video
+## 🎬 Demo
 
-Watch our robot in action performing autonomous navigation and manipulation tasks in Gazebo simulation:
+### Video Demonstrations
 
-https://github.com/Elrond-JJ/winterhack_u/assets/Gazebo_simulation.mp4
+#### Gazebo Simulation
+Watch the robot performing autonomous navigation and manipulation in simulation:
 
-> **Note**: Click the video above to play. If the video doesn't load, you can [download it directly](./Gazebo_simulation.mp4).
+[![Gazebo Simulation Demo](https://img.youtube.com/vi/vOa1X8RrOgM/maxresdefault.jpg)](https://youtu.be/vOa1X8RrOgM)
+
+🎥 [Watch on YouTube](https://youtu.be/vOa1X8RrOgM)
+
+#### Real Robot Testing
+See the system running on actual hardware:
+
+[![Real Robot Demo](https://img.youtube.com/vi/jdtO_zQPL5k/maxresdefault.jpg)](https://youtu.be/jdtO_zQPL5k)
+
+🎥 [Watch on YouTube](https://youtu.be/jdtO_zQPL5k)
+
+### Screenshots
+
+#### Gazebo Simulation Environment
+![Gazebo Simulation](assets/demo/Gazebo_sim_sinppet.png)
+*Robot navigating and performing pick-and-place tasks in simulated environment*
+
+#### Real Robot Hardware Testing
+![Real Robot Testing](assets/demo/real_bot_test_sinppet.png)
+*Physical robot executing autonomous navigation and manipulation tasks*
 
 ## 📦 Project Structure
 
